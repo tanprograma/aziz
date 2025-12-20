@@ -1,0 +1,226 @@
+<div class="page-wrapper">
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="navbar__brand" (click)="scrollTo('hero')">
+      <div class="navbar__logo">AM</div>
+      <div class="navbar__text">
+        <div class="navbar__title">AM RADIOLOGY SERVICES</div>
+        <div class="navbar__subtitle">Precision in every image</div>
+      </div>
+    </div>
+
+    <nav class="navbar__links">
+      <button class="nav-link" (click)="scrollTo('services')">Services</button>
+      <button class="nav-link" (click)="scrollTo('about')">Why AM Radiology</button>
+      <button class="nav-link" (click)="scrollTo('contact')">Contact</button>
+      <a class="nav-cta" href="#contact" (click)="scrollTo('contact')"> Book Appointment </a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero__content">
+      <h1 class="hero__title">
+        Advanced Medical Imaging,
+        <span class="hero__accent">Trusted Diagnostics.</span>
+      </h1>
+
+      <p class="hero__subtitle">
+        AM RADIOLOGY SERVICES provides state-of-the-art medical imaging with consultant
+        radiologists, modern equipment, and prompt reporting — so you can make confident clinical
+        decisions faster.
+      </p>
+
+      <div class="hero__actions">
+        <button class="btn btn-primary" (click)="scrollTo('contact')">
+          Schedule an Imaging Study
+        </button>
+        <button class="btn btn-outline" (click)="scrollTo('services')">Explore Our Services</button>
+      </div>
+
+      <div class="hero__stats">
+        <div class="stat">
+          <div class="stat__value">24/7</div>
+          <div class="stat__label">Emergency Imaging Support</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">15+</div>
+          <div class="stat__label">Years Radiology Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">&lt; 24h</div>
+          <div class="stat__label">Standard Report Turnaround</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero-card hero-card--main h-visual">
+        <h3>CT & MRI Suite</h3>
+        <p>Low-dose protocols, high-definition imaging, and radiologist-led reporting.</p>
+        <div class="hero-card__tag">Accurate • Fast • Secure</div>
+      </div>
+
+      <div class="hero-card hero-card--secondary">
+        <div class="hero-card__label">Real-time Access</div>
+        <div class="hero-card__value">Cloud PACS</div>
+        <p>Referring physicians access images securely from anywhere.</p>
+      </div>
+
+      <div class="hero__pulse-circle hero__pulse-circle--one"></div>
+      <div class="hero__pulse-circle hero__pulse-circle--two"></div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section section--light">
+    <div class="section__header">
+      <h2>Our Imaging Services</h2>
+      <p>Comprehensive diagnostic imaging tailored to your clinical needs.</p>
+    </div>
+
+    <div class="cards-grid">
+      @for (service of services; track $index) {
+      <article class="service-card my-color">
+        <div class="service-card__icon">{{ service.icon }}</div>
+        <h3 class="service-card__title">{{ service.title }}</h3>
+        <p class="service-card__description">{{ service.description }}</p>
+      </article>
+      }
+    </div>
+  </section>
+
+  <!-- About / Why Us -->
+  <section id="about" class="section section--dark">
+    <div class="about">
+      <div class="about__content">
+        <h2>Why Choose AM RADIOLOGY SERVICES?</h2>
+        <p>
+          We partner with hospitals, clinics, and individual practitioners to deliver reliable,
+          timely, and clinically relevant imaging reports. Every scan is reviewed by experienced
+          radiologists using standardized reporting protocols.
+        </p>
+
+        <ul class="about__list">
+          @for (benefit of benefits; track $index) {
+          <li>
+            <span class="bullet"></span>
+            <span>{{ benefit }}</span>
+          </li>
+          }
+        </ul>
+      </div>
+
+      <div class="about__panel">
+        <h3>Quality & Safety First</h3>
+        <p>
+          From radiation dose monitoring to strict infection-prevention protocols, we prioritize
+          patient safety at every stage of the imaging journey.
+        </p>
+
+        <div class="about-metrics">
+          <div class="about-metric">
+            <span class="about-metric__label">Accreditation</span>
+            <span class="about-metric__value">In-progress / Certified</span>
+          </div>
+          <div class="about-metric">
+            <span class="about-metric__label">Modalities</span>
+            <span class="about-metric__value">X-Ray, CT, MRI, US</span>
+          </div>
+          <div class="about-metric">
+            <span class="about-metric__label">Turnaround</span>
+            <span class="about-metric__value">Routine &amp; STAT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / CTA Section -->
+  <section id="contact" class="section section--contact">
+    <div class="contact">
+      <div class="contact__info">
+        <h2>Book an Imaging Appointment</h2>
+        <p>
+          Share your details and referring physician information, and our team will confirm your
+          appointment and preparation instructions.
+        </p>
+
+        <div class="contact__details">
+          <div>
+            <h4>Contact</h4>
+            <p>Phone: +1 (000) 000-0000</p>
+            <p>Email: bookings@amradiologyservices.com</p>
+          </div>
+          <div>
+            <h4>Location</h4>
+            <p>AM Radiology Center</p>
+            <p>123 Medical Avenue, Your City</p>
+          </div>
+          <div>
+            <h4>Hours</h4>
+            <p>Mon–Fri: 7:00 AM – 9:00 PM</p>
+            <p>Sat: 8:00 AM – 4:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact__form" (submit)="$event.preventDefault()">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" type="text" placeholder="John Doe" required />
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone Number</label>
+            <input id="phone" type="tel" placeholder="+1 555 123 4567" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-field">
+            <label for="modality">Requested Modality</label>
+            <select id="modality">
+              <option>Digital X-Ray</option>
+              <option>MRI</option>
+              <option>CT Scan</option>
+              <option>Ultrasound</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="notes">Referral / Clinical Notes</label>
+          <textarea
+            id="notes"
+            rows="3"
+            placeholder="Include the referring physician and clinical question if available."
+          ></textarea>
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit">Submit Request</button>
+
+        <p class="form-footnote">
+          We will never share your medical information without your explicit consent.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__brand">
+      <span class="footer__logo">AM</span>
+      <span>AM RADIOLOGY SERVICES</span>
+    </div>
+    <div class="footer__meta">
+      <span>© {{ getFullYear() }} AM Radiology Services. All rights reserved.</span>
+      <span>Privacy • Terms • Contact</span>
+    </div>
+  </footer>
+</div>
