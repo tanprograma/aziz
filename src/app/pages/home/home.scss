@@ -764,3 +764,113 @@ article,
 .h-visual {
   color: #14b8a6;
 }
+
+/* Community Section */
+.community {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.community__intro {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.community-card {
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.2rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-med), box-shadow var(--transition-med);
+}
+
+.community-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.community-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.community-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(56, 189, 248, 0.25);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .community-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .community-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+/* Social Media Section */
+.contact__social {
+  margin-top: 2rem;
+}
+
+.contact__social h4 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* Instagram */
+.social-link.instagram {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+  box-shadow: 0 6px 18px rgba(221, 42, 123, 0.35);
+}
+
+.social-link.instagram:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(221, 42, 123, 0.45);
+}
+
+/* WhatsApp */
+.social-link.whatsapp {
+  background: #25d366;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+.social-link.whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+}

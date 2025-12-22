@@ -1,12 +1,31 @@
 import { Component } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'home',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
+  fb = new FormBuilder();
+
+  contactForm = this.fb.group({
+    fullName: ['', Validators.required],
+    phone: ['', Validators.required],
+    email: ['', [Validators.email]],
+    modality: ['Digital X-Ray'],
+    notes: [''],
+  });
+  submitForm() {
+    if (this.contactForm.valid) {
+      console.log('Form Submitted:', this.contactForm.value);
+      alert('Your request has been submitted.');
+      this.contactForm.reset();
+    } else {
+      this.contactForm.markAllAsTouched();
+    }
+  }
   services = [
     {
       icon: '🩻',

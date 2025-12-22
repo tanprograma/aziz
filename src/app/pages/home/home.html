@@ -135,6 +135,60 @@
       </div>
     </div>
   </section>
+  <!-- Community Outreach & Education Programs -->
+  <section id="community" class="section section--light">
+    <div class="section__header">
+      <h2>Community Outreach & Education Programs</h2>
+      <p>
+        Empowering patients, families, and local communities with knowledge about medical imaging
+        and radiation safety.
+      </p>
+    </div>
+
+    <div class="community">
+      <div class="community__intro">
+        <p>
+          AM Radiology Services is committed to improving public understanding of diagnostic
+          imaging. Through workshops, school visits, professional seminars, and patient‑focused
+          education, we help communities make informed decisions about their health.
+        </p>
+      </div>
+
+      <div class="community-grid">
+        <article class="community-card">
+          <h3>School & University Programs</h3>
+          <p>
+            Interactive sessions introducing students to radiology careers, imaging technology, and
+            the science behind X‑ray, CT, MRI, and ultrasound.
+          </p>
+        </article>
+
+        <article class="community-card">
+          <h3>Patient Education Workshops</h3>
+          <p>
+            Free monthly workshops explaining imaging procedures, preparation steps, radiation
+            safety, and how to interpret radiology reports.
+          </p>
+        </article>
+
+        <article class="community-card">
+          <h3>Healthcare Provider Seminars</h3>
+          <p>
+            Training for nurses, clinicians, and allied health professionals on imaging best
+            practices, referral guidelines, and emerging radiology technologies.
+          </p>
+        </article>
+
+        <article class="community-card">
+          <h3>Public Awareness Campaigns</h3>
+          <p>
+            Community events and outreach initiatives promoting early detection, preventive imaging,
+            and responsible use of diagnostic tools.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <!-- Contact / CTA Section -->
   <section id="contact" class="section section--contact">
@@ -149,13 +203,13 @@
         <div class="contact__details">
           <div>
             <h4>Contact</h4>
-            <p>Phone: +1 (000) 000-0000</p>
-            <p>Email: bookings@amradiologyservices.com</p>
+            <p>Phone: +255 655 467-904</p>
+            <p>Email: azizmkumbwa@outlook.com</p>
           </div>
           <div>
             <h4>Location</h4>
             <p>AM Radiology Center</p>
-            <p>123 Medical Avenue, Your City</p>
+            <p>Bunju, Dar-es-salaam</p>
           </div>
           <div>
             <h4>Hours</h4>
@@ -164,43 +218,72 @@
           </div>
         </div>
       </div>
+      <div class="contact__social">
+        <h4>Connect With Us</h4>
+        <div class="social-links">
+          <a
+            href="https://www.instagram.com/am_diagnostic_centre?igsh=MTkzcHJsbWF6dWJ2"
+            target="_blank"
+            class="social-link instagram"
+          >
+            <span>Instagram</span>
+          </a>
+          <a href="https://wa.me/255655467904" target="_blank" class="social-link whatsapp">
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
 
-      <form class="contact__form" (submit)="$event.preventDefault()">
+      <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="submitForm()">
         <div class="form-row">
+          <!-- Full Name -->
           <div class="form-field">
             <label for="fullName">Full Name</label>
-            <input id="fullName" type="text" placeholder="John Doe" required />
+            <input id="fullName" type="text" formControlName="fullName" />
+
+            @if (contactForm.get('fullName')?.touched && contactForm.get('fullName')?.invalid) {
+            <small>Full name is required.</small>
+            }
           </div>
+
+          <!-- Phone -->
           <div class="form-field">
             <label for="phone">Phone Number</label>
-            <input id="phone" type="tel" placeholder="+1 555 123 4567" required />
+            <input id="phone" type="tel" formControlName="phone" />
+
+            @if (contactForm.get('phone')?.touched && contactForm.get('phone')?.invalid) {
+            <small>Phone number is required.</small>
+            }
           </div>
         </div>
 
         <div class="form-row">
+          <!-- Email -->
           <div class="form-field">
             <label for="email">Email</label>
-            <input id="email" type="email" placeholder="you@example.com" required />
+            <input id="email" type="email" formControlName="email" />
+
+            @if (contactForm.get('email')?.touched && contactForm.get('email')?.invalid) {
+            <small>Enter a valid email address.</small>
+            }
           </div>
+
+          <!-- Modality -->
           <div class="form-field">
             <label for="modality">Requested Modality</label>
-            <select id="modality">
-              <option>Digital X-Ray</option>
-              <option>MRI</option>
-              <option>CT Scan</option>
-              <option>Ultrasound</option>
-              <option>Other / Not Sure</option>
+            <select id="modality" formControlName="modality">
+              @for (option of ['Digital X-Ray','MRI','CT Scan','Ultrasound','Other / Not Sure'];
+              track option) {
+              <option [value]="option">{{ option }}</option>
+              }
             </select>
           </div>
         </div>
 
+        <!-- Notes -->
         <div class="form-field">
           <label for="notes">Referral / Clinical Notes</label>
-          <textarea
-            id="notes"
-            rows="3"
-            placeholder="Include the referring physician and clinical question if available."
-          ></textarea>
+          <textarea id="notes" rows="3" formControlName="notes"></textarea>
         </div>
 
         <button class="btn btn-primary btn-block" type="submit">Submit Request</button>
