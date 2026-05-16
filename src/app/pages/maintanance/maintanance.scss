@@ -1,0 +1,27 @@
+/* site-maintenance.component.css */
+.maintenance-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f6f8;
+}
+
+.maintenance-card {
+  text-align: center;
+  padding: 2rem 3rem;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.maintenance-card h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.maintenance-card p {
+  font-size: 1rem;
+  color: #7f8c8d;
+}
